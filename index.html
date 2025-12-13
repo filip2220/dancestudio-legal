@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dance Studio Manager - Dokumenty Prawne / Legal Documents</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #faf5ff 0%, #f0e6fa 50%, #e8d5f0 100%);
+            min-height: 100vh;
+            color: #1a1a2e;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 10px 40px rgba(114, 47, 90, 0.3);
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .cards {
+            display: grid;
+            gap: 24px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(114, 47, 90, 0.15);
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #f0e6fa 0%, #e8d5f0 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+        }
+        
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #722F5A;
+            font-weight: 600;
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+        
+        .card-link svg {
+            transition: transform 0.2s;
+        }
+        
+        .card:hover .card-link svg {
+            transform: translateX(4px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(114, 47, 90, 0.1);
+        }
+        
+        .footer p {
+            color: #888;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 24px;
+            text-align: left;
+        }
+        
+        .contact-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #722F5A;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: #444;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 16px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-text">DS</span>
+            </div>
+            <h1>Dance Studio Manager</h1>
+            <p class="subtitle">Dokumenty Prawne / Legal Documents</p>
+        </header>
+        
+        <div class="cards">
+            <a href="privacy-policy.html" class="card">
+                <div class="card-icon">🔒</div>
+                <h2>Polityka Prywatności / Privacy Policy</h2>
+                <p>
+                    Informacje o tym, jak zbieramy, wykorzystujemy i chronimy Twoje dane osobowe zgodnie z RODO.
+                    <br><br>
+                    <em>Information about how we collect, use, and protect your personal data in compliance with GDPR.</em>
+                </p>
+                <span class="card-link">
+                    Przeczytaj / Read
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </span>
+            </a>
+            
+            <a href="terms-of-service.html" class="card">
+                <div class="card-icon">📋</div>
+                <h2>Regulamin / Terms of Service</h2>
+                <p>
+                    Zasady korzystania z aplikacji Dance Studio Manager, prawa i obowiązki użytkowników.
+                    <br><br>
+                    <em>Rules for using the Dance Studio Manager application, user rights and obligations.</em>
+                </p>
+                <span class="card-link">
+                    Przeczytaj / Read
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </span>
+            </a>
+            
+            <a href="support.html" class="card">
+                <div class="card-icon">💬</div>
+                <h2>Pomoc i Wsparcie / Help & Support</h2>
+                <p>
+                    Potrzebujesz pomocy? Skontaktuj się z nami lub sprawdź najczęściej zadawane pytania.
+                    <br><br>
+                    <em>Need help? Contact us or check frequently asked questions.</em>
+                </p>
+                <span class="card-link">
+                    Kontakt / Contact
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </span>
+            </a>
+        </div>
+        
+        <footer class="footer">
+            <p>
+                © 2025 Dance Studio Manager<br>
+                Wszystkie prawa zastrzeżone / All rights reserved
+            </p>
+            <div class="contact-info">
+                <h3>📍 Dane kontaktowe / Contact Information</h3>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>balet.z.nora@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🏢</span>
+                    <span>ul. Akacjowa 6i, 37-403 Pysznica</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+48 732 577 948</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+

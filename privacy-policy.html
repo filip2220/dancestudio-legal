@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności - Dance Studio Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #faf5ff;
+            min-height: 100vh;
+            color: #1a1a2e;
+            line-height: 1.7;
+        }
+        
+        .nav {
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #722F5A;
+            font-weight: 600;
+        }
+        
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #722F5A;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #e8d5f0;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .last-updated {
+            display: inline-block;
+            background: #f0e6fa;
+            color: #722F5A;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .lang-btn {
+            padding: 10px 20px;
+            border: 2px solid #e8d5f0;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .lang-btn:hover {
+            border-color: #722F5A;
+        }
+        
+        .lang-btn.active {
+            background: #722F5A;
+            color: white;
+            border-color: #722F5A;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section {
+            margin-bottom: 32px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0e6fa;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 20px 0 12px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            color: #444;
+        }
+        
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #e8d5f0;
+        }
+        
+        th {
+            background: #f0e6fa;
+            font-weight: 600;
+            color: #722F5A;
+        }
+        
+        .info-box {
+            background: #f0e6fa;
+            border-left: 4px solid #722F5A;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        
+        .info-box p {
+            margin: 0;
+            color: #4a2a3d;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-top: 32px;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+        }
+        
+        .contact-box a {
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+            
+            .content {
+                padding: 24px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            table {
+                font-size: 0.8rem;
+            }
+            
+            th, td {
+                padding: 8px;
+            }
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo">DS</div>
+                <span>Dance Studio Manager</span>
+            </a>
+            <a href="index.html" class="nav-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Powrót / Back
+            </a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header class="header">
+            <h1>🔒 Polityka Prywatności / Privacy Policy</h1>
+            <p class="subtitle">Dance Studio Manager</p>
+            <span class="last-updated">Ostatnia aktualizacja: 13 grudnia 2025</span>
+        </header>
+        
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="showLang('pl')">🇵🇱 Polski</button>
+            <button class="lang-btn" onclick="showLang('en')">🇬🇧 English</button>
+        </div>
+        
+        <div class="content">
+            <!-- POLISH VERSION -->
+            <div id="content-pl">
+                <section class="section">
+                    <h2>1. Administrator Danych</h2>
+                    <p>Administratorem Twoich danych osobowych jest:</p>
+                    <div class="info-box">
+                        <p><strong>Balet Klasyczny - Nora Cotter-Szymik</strong><br>
+                        ul. Akacjowa 6i, 37-403 Pysznica<br>
+                        NIP: 8652590977<br>
+                        Email: balet.z.nora@gmail.com</p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2>2. Jakie dane zbieramy</h2>
+                    
+                    <h3>2.1 Dane podawane przez użytkownika</h3>
+                    <ul>
+                        <li><strong>Dane konta:</strong> adres email, imię i nazwisko, numer telefonu, hasło</li>
+                        <li><strong>Dane uczniów:</strong> imię i nazwisko ucznia, data urodzenia, uwagi medyczne, kontakty awaryjne</li>
+                        <li><strong>Dane kontaktowe:</strong> adres, historia komunikacji</li>
+                        <li><strong>Komunikacja:</strong> wiadomości wysyłane przez aplikację</li>
+                    </ul>
+                    
+                    <h3>2.2 Dane zbierane automatycznie</h3>
+                    <ul>
+                        <li>Informacje o urządzeniu (typ, system operacyjny)</li>
+                        <li>Dane użytkowania aplikacji</li>
+                        <li>Dane logów (adres IP, czasy dostępu)</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>3. Podstawy prawne przetwarzania (Art. 6 RODO)</h2>
+                    <table>
+                        <tr>
+                            <th>Cel przetwarzania</th>
+                            <th>Podstawa prawna</th>
+                        </tr>
+                        <tr>
+                            <td>Świadczenie usług</td>
+                            <td>Art. 6 ust. 1 lit. b) - wykonanie umowy</td>
+                        </tr>
+                        <tr>
+                            <td>Organizacja zajęć</td>
+                            <td>Art. 6 ust. 1 lit. b) - wykonanie umowy</td>
+                        </tr>
+                        <tr>
+                            <td>Powiadomienia push</td>
+                            <td>Art. 6 ust. 1 lit. a) - zgoda</td>
+                        </tr>
+                        <tr>
+                            <td>Analityka i poprawa usług</td>
+                            <td>Art. 6 ust. 1 lit. f) - prawnie uzasadniony interes</td>
+                        </tr>
+                        <tr>
+                            <td>Obowiązki podatkowe</td>
+                            <td>Art. 6 ust. 1 lit. c) - obowiązek prawny</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <section class="section">
+                    <h2>4. Udostępnianie danych</h2>
+                    <p><strong>Nie sprzedajemy Twoich danych osobowych.</strong></p>
+                    <p>Możemy udostępniać dane:</p>
+                    <ul>
+                        <li><strong>W ramach studia:</strong> właściciele, nauczyciele i rodzice w zakresie niezbędnym do świadczenia usług</li>
+                        <li><strong>Dostawcom usług:</strong> hosting (serwery w UE), email, Cloudinary (zdjęcia), Firebase (powiadomienia)</li>
+                        <li><strong>Gdy wymaga prawo:</strong> na żądanie organów publicznych</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>5. Bezpieczeństwo danych</h2>
+                    <ul>
+                        <li>Szyfrowanie danych w transmisji (HTTPS/TLS)</li>
+                        <li>Bezpieczne hashowanie haseł (bcrypt)</li>
+                        <li>Uwierzytelnianie JWT dla aplikacji mobilnych</li>
+                        <li>Przechowywanie danych na serwerach w Unii Europejskiej</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>6. Okres przechowywania</h2>
+                    <ul>
+                        <li><strong>Aktywne konta:</strong> przez okres aktywności konta</li>
+                        <li><strong>Nieaktywne konta:</strong> do 2 lat po ostatniej aktywności</li>
+                        <li><strong>Dane kontaktowe:</strong> przez okres korzystania z usługi</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>7. Twoje prawa (Art. 15-22 RODO)</h2>
+                    <table>
+                        <tr>
+                            <th>Prawo</th>
+                            <th>Opis</th>
+                        </tr>
+                        <tr>
+                            <td>Prawo dostępu (Art. 15)</td>
+                            <td>Żądanie kopii swoich danych</td>
+                        </tr>
+                        <tr>
+                            <td>Prawo do sprostowania (Art. 16)</td>
+                            <td>Poprawienie nieprawidłowych danych</td>
+                        </tr>
+                        <tr>
+                            <td>Prawo do usunięcia (Art. 17)</td>
+                            <td>Usunięcie danych ("prawo do bycia zapomnianym")</td>
+                        </tr>
+                        <tr>
+                            <td>Prawo do przenoszenia (Art. 20)</td>
+                            <td>Otrzymanie danych w formacie maszynowym</td>
+                        </tr>
+                        <tr>
+                            <td>Prawo do sprzeciwu (Art. 21)</td>
+                            <td>Sprzeciw wobec przetwarzania</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <section class="section">
+                    <h2>8. Prawo do skargi</h2>
+                    <p>Masz prawo wnieść skargę do organu nadzorczego:</p>
+                    <div class="info-box">
+                        <p><strong>Prezes Urzędu Ochrony Danych Osobowych (UODO)</strong><br>
+                        ul. Stawki 2, 00-193 Warszawa<br>
+                        Tel.: 22 531 03 00<br>
+                        Email: kancelaria@uodo.gov.pl<br>
+                        <a href="https://uodo.gov.pl" target="_blank">https://uodo.gov.pl</a></p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2>9. Dane dzieci</h2>
+                    <p>Zbieramy dane dzieci (imiona, daty urodzenia, uwagi medyczne) wyłącznie w zakresie niezbędnym do zapisu na zajęcia i zapewnienia bezpieczeństwa. Dane te są podawane i kontrolowane przez rodziców/opiekunów prawnych.</p>
+                </section>
+                
+                <div class="contact-box">
+                    <h3>📧 Kontakt w sprawie danych osobowych</h3>
+                    <p><strong>Email:</strong> balet.z.nora@gmail.com</p>
+                    <p><strong>Adres:</strong> ul. Akacjowa 6i, 37-403 Pysznica</p>
+                    <p><strong>Telefon:</strong> +48 732 577 948</p>
+                </div>
+            </div>
+            
+            <!-- ENGLISH VERSION -->
+            <div id="content-en" class="hidden">
+                <section class="section">
+                    <h2>1. Data Controller</h2>
+                    <p>The controller of your personal data is:</p>
+                    <div class="info-box">
+                        <p><strong>Balet Klasyczny - Nora Cotter-Szymik</strong><br>
+                        ul. Akacjowa 6i, 37-403 Pysznica, Poland<br>
+                        Tax ID (NIP): 8652590977<br>
+                        Email: balet.z.nora@gmail.com</p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2>2. Data We Collect</h2>
+                    
+                    <h3>2.1 Information You Provide</h3>
+                    <ul>
+                        <li><strong>Account Information:</strong> email address, name, phone number, password</li>
+                        <li><strong>Student Information:</strong> student names, dates of birth, medical notes, emergency contacts</li>
+                        <li><strong>Contact Information:</strong> addresses, communication history</li>
+                        <li><strong>Communication:</strong> messages sent through the app</li>
+                    </ul>
+                    
+                    <h3>2.2 Automatically Collected Information</h3>
+                    <ul>
+                        <li>Device information (type, operating system)</li>
+                        <li>App usage data</li>
+                        <li>Log data (IP address, access times)</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>3. Legal Basis for Processing (GDPR Art. 6)</h2>
+                    <table>
+                        <tr>
+                            <th>Processing Purpose</th>
+                            <th>Legal Basis</th>
+                        </tr>
+                        <tr>
+                            <td>Service provision</td>
+                            <td>Art. 6(1)(b) - contract performance</td>
+                        </tr>
+                        <tr>
+                            <td>Class organization</td>
+                            <td>Art. 6(1)(b) - contract performance</td>
+                        </tr>
+                        <tr>
+                            <td>Push notifications</td>
+                            <td>Art. 6(1)(a) - consent</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics & improvement</td>
+                            <td>Art. 6(1)(f) - legitimate interest</td>
+                        </tr>
+                        <tr>
+                            <td>Tax obligations</td>
+                            <td>Art. 6(1)(c) - legal obligation</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <section class="section">
+                    <h2>4. Data Sharing</h2>
+                    <p><strong>We do not sell your personal data.</strong></p>
+                    <p>We may share data with:</p>
+                    <ul>
+                        <li><strong>Within studio:</strong> owners, teachers, and parents as necessary for service provision</li>
+                        <li><strong>Service providers:</strong> hosting (EU servers), email, Cloudinary (photos), Firebase (notifications)</li>
+                        <li><strong>Legal requirements:</strong> upon request by public authorities</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>5. Data Security</h2>
+                    <ul>
+                        <li>Encryption in transit (HTTPS/TLS)</li>
+                        <li>Secure password hashing (bcrypt)</li>
+                        <li>JWT authentication for mobile apps</li>
+                        <li>Data storage on servers within the European Union</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>6. Data Retention</h2>
+                    <ul>
+                        <li><strong>Active accounts:</strong> while account is active</li>
+                        <li><strong>Inactive accounts:</strong> up to 2 years after last activity</li>
+                        <li><strong>Contact data:</strong> for the duration of service use</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>7. Your Rights (GDPR Art. 15-22)</h2>
+                    <table>
+                        <tr>
+                            <th>Right</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Right of Access (Art. 15)</td>
+                            <td>Request a copy of your data</td>
+                        </tr>
+                        <tr>
+                            <td>Right to Rectification (Art. 16)</td>
+                            <td>Correct inaccurate data</td>
+                        </tr>
+                        <tr>
+                            <td>Right to Erasure (Art. 17)</td>
+                            <td>Delete your data ("right to be forgotten")</td>
+                        </tr>
+                        <tr>
+                            <td>Right to Portability (Art. 20)</td>
+                            <td>Receive data in machine-readable format</td>
+                        </tr>
+                        <tr>
+                            <td>Right to Object (Art. 21)</td>
+                            <td>Object to processing</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <section class="section">
+                    <h2>8. Right to Complain</h2>
+                    <p>You have the right to lodge a complaint with the supervisory authority:</p>
+                    <div class="info-box">
+                        <p><strong>President of the Personal Data Protection Office (UODO)</strong><br>
+                        ul. Stawki 2, 00-193 Warsaw, Poland<br>
+                        Tel.: +48 22 531 03 00<br>
+                        Email: kancelaria@uodo.gov.pl<br>
+                        <a href="https://uodo.gov.pl" target="_blank">https://uodo.gov.pl</a></p>
+                    </div>
+                </section>
+                
+                <section class="section">
+                    <h2>9. Children's Data</h2>
+                    <p>We collect children's data (names, birth dates, medical notes) only as necessary for class enrollment and safety purposes. This data is provided and controlled by parents/legal guardians.</p>
+                </section>
+                
+                <div class="contact-box">
+                    <h3>📧 Data Protection Contact</h3>
+                    <p><strong>Email:</strong> balet.z.nora@gmail.com</p>
+                    <p><strong>Address:</strong> ul. Akacjowa 6i, 37-403 Pysznica, Poland</p>
+                    <p><strong>Phone:</strong> +48 732 577 948</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showLang(lang) {
+            document.getElementById('content-pl').classList.toggle('hidden', lang !== 'pl');
+            document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+

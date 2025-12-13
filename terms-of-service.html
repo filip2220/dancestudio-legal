@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin - Dance Studio Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #faf5ff;
+            min-height: 100vh;
+            color: #1a1a2e;
+            line-height: 1.7;
+        }
+        
+        .nav {
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #722F5A;
+            font-weight: 600;
+        }
+        
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #722F5A;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #e8d5f0;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .last-updated {
+            display: inline-block;
+            background: #f0e6fa;
+            color: #722F5A;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 16px;
+        }
+        
+        .lang-switch {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .lang-btn {
+            padding: 10px 20px;
+            border: 2px solid #e8d5f0;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .lang-btn:hover {
+            border-color: #722F5A;
+        }
+        
+        .lang-btn.active {
+            background: #722F5A;
+            color: white;
+            border-color: #722F5A;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section {
+            margin-bottom: 32px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f0e6fa;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 20px 0 12px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            color: #444;
+        }
+        
+        ul, ol {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        .info-box {
+            background: #f0e6fa;
+            border-left: 4px solid #722F5A;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        
+        .info-box p {
+            margin: 0;
+            color: #4a2a3d;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 20px 0;
+        }
+        
+        .warning-box p {
+            margin: 0;
+            color: #664d03;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-top: 32px;
+        }
+        
+        .contact-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .contact-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+        }
+        
+        .contact-box a {
+            color: white;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+            
+            .content {
+                padding: 24px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo">DS</div>
+                <span>Dance Studio Manager</span>
+            </a>
+            <a href="index.html" class="nav-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Powrót / Back
+            </a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header class="header">
+            <h1>📋 Regulamin / Terms of Service</h1>
+            <p class="subtitle">Dance Studio Manager</p>
+            <span class="last-updated">Ostatnia aktualizacja: 13 grudnia 2025</span>
+        </header>
+        
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="showLang('pl')">🇵🇱 Polski</button>
+            <button class="lang-btn" onclick="showLang('en')">🇬🇧 English</button>
+        </div>
+        
+        <div class="content">
+            <!-- POLISH VERSION -->
+            <div id="content-pl">
+                <section class="section">
+                    <h2>§1. Postanowienia Ogólne</h2>
+                    <p>Niniejszy Regulamin określa zasady świadczenia usług drogą elektroniczną przez aplikację Dance Studio Manager.</p>
+                    <div class="info-box">
+                        <p><strong>Usługodawca:</strong><br>
+                        Balet Klasyczny - Nora Cotter-Szymik<br>
+                        ul. Akacjowa 6i, 37-403 Pysznica<br>
+                        NIP: 8652590977<br>
+                        Email: balet.z.nora@gmail.com</p>
+                    </div>
+                    <p>Korzystanie z Aplikacji oznacza akceptację niniejszego Regulaminu.</p>
+                </section>
+                
+                <section class="section">
+                    <h2>§2. Definicje</h2>
+                    <ul>
+                        <li><strong>Użytkownik</strong> - osoba korzystająca z Aplikacji</li>
+                        <li><strong>Właściciel Studia</strong> - Użytkownik zarządzający studiem</li>
+                        <li><strong>Nauczyciel</strong> - Użytkownik prowadzący zajęcia</li>
+                        <li><strong>Rodzic</strong> - opiekun prawny ucznia</li>
+                        <li><strong>Konsument</strong> - osoba fizyczna dokonująca czynności niezwiązanej z działalnością gospodarczą</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§3. Zakres Usług</h2>
+                    <p>Aplikacja umożliwia:</p>
+                    <ul>
+                        <li>Zarządzanie zajęciami i harmonogramami</li>
+                        <li>Śledzenie obecności uczniów</li>
+                        <li>Komunikację między użytkownikami studia</li>
+                        <li>Zarządzanie zapisami i płatnościami</li>
+                        <li>Generowanie faktur i raportów</li>
+                        <li>Przechowywanie zdjęć w galerii</li>
+                        <li>Otrzymywanie powiadomień push</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§4. Wymagania Techniczne</h2>
+                    <ul>
+                        <li>Urządzenie mobilne z systemem Android 7.0+ lub iOS 13.0+</li>
+                        <li>Przeglądarka internetowa (wersja web)</li>
+                        <li>Aktywne połączenie z Internetem</li>
+                        <li>Aktywny adres email</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§5. Rejestracja i Konto</h2>
+                    <p>Użytkownik zobowiązuje się do:</p>
+                    <ul>
+                        <li>Podania prawdziwych danych</li>
+                        <li>Zachowania poufności hasła</li>
+                        <li>Niezwłocznego informowania o nieautoryzowanym dostępie</li>
+                        <li>Aktualizacji danych w przypadku ich zmiany</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§6. Zasady Korzystania</h2>
+                    <p><strong>Zabrania się:</strong></p>
+                    <ul>
+                        <li>Prób uzyskania nieautoryzowanego dostępu do systemu</li>
+                        <li>Kopiowania lub rozpowszechniania elementów Aplikacji</li>
+                        <li>Wykorzystywania Aplikacji do celów niezgodnych z przeznaczeniem</li>
+                        <li>Umieszczania treści bezprawnych lub obraźliwych</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h2>§7. Bezpłatność Usługi</h2>
+                    <p>Korzystanie z Aplikacji Dance Studio Manager jest <strong>całkowicie bezpłatne</strong>. Nie pobieramy żadnych opłat za korzystanie z funkcji aplikacji.</p>
+                </section>
+                
+                <section class="section">
+                    <h2>§8. Prawa Konsumenta - Odstąpienie od Umowy</h2>
+                    <div class="warning-box">
+                        <p><strong>⚠️ Ważne dla Konsumentów:</strong> Masz prawo odstąpić od umowy w terminie <strong>14 dni</strong> bez podania przyczyny.</p>
+                    </div>
+                    <p>Aby skorzystać z prawa odstąpienia:</p>
+                    <ol>
+                        <li>Poinformuj nas emailem na balet.z.nora@gmail.com</li>
+                        <li>Podaj: datę zawarcia umowy, imię i nazwisko, email konta</li>
+                    </ol>
+                    <p>W przypadku skutecznego odstąpienia zwrócimy wszystkie płatności w terminie 14 dni.</p>
+                </section>
+                
+                <section class="section">
+                    <h2>§9. Reklamacje</h2>
+                    <p>Reklamację można złożyć emailem na balet.z.nora@gmail.com.</p>
+                    <p>Reklamacja powinna zawierać:</p>
+                    <ul>
+                        <li>Dane użytkownika</li>
+                        <li>Opis problemu</li>
+                        <li>Oczekiwany sposób rozwiązania</li>
+                    </ul>
+                    <p><strong>Odpowiedź w terminie 14 dni.</strong></p>
+                </section>
+                
+                <section class="section">
+                    <h2>§10. Odpowiedzialność</h2>
+                    <p>Usługodawca nie ponosi odpowiedzialności za:</p>
+                    <ul>
+                        <li>Przerwy spowodowane siłą wyższą</li>
+                        <li>Utratę danych wynikającą z działań Użytkownika</li>
+                        <li>Treści wprowadzane przez Użytkowników</li>
+                        <li>Szkody wynikające z nieprawidłowego korzystania</li>
+                    </ul>
+                    <p><em>Ograniczenia nie dotyczą Konsumentów w przypadku szkód umyślnych lub z rażącego niedbalstwa.</em></p>
+                </section>
+                
+                <section class="section">
+                    <h2>§11. Rozwiązywanie Sporów</h2>
+                    <p>Konsumenci mogą skorzystać z pozasądowych sposobów rozwiązywania sporów:</p>
+                    <ul>
+                        <li>Mediacja przy wojewódzkich inspektoratach Inspekcji Handlowej</li>
+                        <li>Stałe polubowne sądy konsumenckie</li>
+                        <li><strong>Platforma ODR:</strong> <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a></li>
+                    </ul>
+                    <p>Więcej informacji: <a href="https://www.uokik.gov.pl" target="_blank">https://www.uokik.gov.pl</a></p>
+                </section>
+                
+                <section class="section">
+                    <h2>§12. Postanowienia Końcowe</h2>
+                    <p>W sprawach nieuregulowanych zastosowanie mają przepisy prawa polskiego, w szczególności:</p>
+                    <ul>
+                        <li>Kodeks cywilny</li>
+                        <li>Ustawa o świadczeniu usług drogą elektroniczną</li>
+                        <li>Ustawa o prawach konsumenta</li>
+                        <li>RODO</li>
+                    </ul>
+                </section>
+                
+                <div class="contact-box">
+                    <h3>📧 Kontakt</h3>
+                    <p><strong>Email:</strong> balet.z.nora@gmail.com</p>
+                    <p><strong>Adres:</strong> ul. Akacjowa 6i, 37-403 Pysznica</p>
+                    <p><strong>Telefon:</strong> +48 732 577 948</p>
+                </div>
+            </div>
+            
+            <!-- ENGLISH VERSION -->
+            <div id="content-en" class="hidden">
+                <section class="section">
+                    <h2>§1. General Provisions</h2>
+                    <p>These Terms of Service govern the provision of electronic services through the Dance Studio Manager application.</p>
+                    <div class="info-box">
+                        <p><strong>Service Provider:</strong><br>
+                        Balet Klasyczny - Nora Cotter-Szymik<br>
+                        ul. Akacjowa 6i, 37-403 Pysznica, Poland<br>
+                        Tax ID (NIP): 8652590977<br>
+                        Email: balet.z.nora@gmail.com</p>
+                    </div>
+                    <p>Use of the Application constitutes acceptance of these Terms.</p>
+                </section>
+                
+                <section class="section">
+                    <h2>§2. Definitions</h2>
+                    <ul>
+                        <li><strong>User</strong> - person using the Application</li>
+                        <li><strong>Studio Owner</strong> - User managing a studio</li>
+                        <li><strong>Teacher</strong> - User conducting classes</li>
+                        <li><strong>Parent</strong> - legal guardian of a student</li>
+                        <li><strong>Consumer</strong> - natural person performing actions unrelated to business activity</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§3. Scope of Services</h2>
+                    <p>The Application enables:</p>
+                    <ul>
+                        <li>Class and schedule management</li>
+                        <li>Student attendance tracking</li>
+                        <li>Communication between studio users</li>
+                        <li>Enrollment and payment management</li>
+                        <li>Invoice and report generation</li>
+                        <li>Photo storage in gallery</li>
+                        <li>Push notifications</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§4. Technical Requirements</h2>
+                    <ul>
+                        <li>Mobile device with Android 7.0+ or iOS 13.0+</li>
+                        <li>Web browser (web version)</li>
+                        <li>Active Internet connection</li>
+                        <li>Active email address</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§5. Registration and Account</h2>
+                    <p>The User agrees to:</p>
+                    <ul>
+                        <li>Provide truthful information</li>
+                        <li>Maintain password confidentiality</li>
+                        <li>Immediately report unauthorized access</li>
+                        <li>Update information when it changes</li>
+                    </ul>
+                </section>
+                
+                <section class="section">
+                    <h2>§6. Rules of Use</h2>
+                    <p><strong>It is prohibited to:</strong></p>
+                    <ul>
+                        <li>Attempt unauthorized access to the system</li>
+                        <li>Copy or distribute Application elements</li>
+                        <li>Use the Application for unintended purposes</li>
+                        <li>Post unlawful or offensive content</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h2>§7. Free Service</h2>
+                    <p>Use of the Dance Studio Manager Application is <strong>completely free</strong>. We do not charge any fees for using the application features.</p>
+                </section>
+                
+                <section class="section">
+                    <h2>§8. Consumer Rights - Withdrawal</h2>
+                    <div class="warning-box">
+                        <p><strong>⚠️ Important for Consumers:</strong> You have the right to withdraw from the contract within <strong>14 days</strong> without giving any reason.</p>
+                    </div>
+                    <p>To exercise the right of withdrawal:</p>
+                    <ol>
+                        <li>Inform us by email at balet.z.nora@gmail.com</li>
+                        <li>Provide: contract date, name, account email</li>
+                    </ol>
+                    <p>In case of effective withdrawal, we will return all payments within 14 days.</p>
+                </section>
+                
+                <section class="section">
+                    <h2>§9. Complaints</h2>
+                    <p>Complaints can be submitted by email to balet.z.nora@gmail.com.</p>
+                    <p>A complaint should include:</p>
+                    <ul>
+                        <li>User data</li>
+                        <li>Problem description</li>
+                        <li>Expected resolution</li>
+                    </ul>
+                    <p><strong>Response within 14 days.</strong></p>
+                </section>
+                
+                <section class="section">
+                    <h2>§10. Liability</h2>
+                    <p>The Service Provider is not liable for:</p>
+                    <ul>
+                        <li>Interruptions caused by force majeure</li>
+                        <li>Data loss resulting from User actions</li>
+                        <li>Content entered by Users</li>
+                        <li>Damages from improper use</li>
+                    </ul>
+                    <p><em>Limitations do not apply to Consumers for intentional damages or gross negligence.</em></p>
+                </section>
+                
+                <section class="section">
+                    <h2>§11. Dispute Resolution</h2>
+                    <p>Consumers may use out-of-court dispute resolution methods:</p>
+                    <ul>
+                        <li>Mediation at provincial Trade Inspection offices</li>
+                        <li>Permanent consumer arbitration courts</li>
+                        <li><strong>ODR Platform:</strong> <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a></li>
+                    </ul>
+                    <p>More info: <a href="https://www.uokik.gov.pl" target="_blank">https://www.uokik.gov.pl</a></p>
+                </section>
+                
+                <section class="section">
+                    <h2>§12. Final Provisions</h2>
+                    <p>Matters not regulated shall be governed by Polish law, in particular:</p>
+                    <ul>
+                        <li>Civil Code</li>
+                        <li>Act on Electronic Services</li>
+                        <li>Consumer Rights Act</li>
+                        <li>GDPR</li>
+                    </ul>
+                </section>
+                
+                <div class="contact-box">
+                    <h3>📧 Contact</h3>
+                    <p><strong>Email:</strong> balet.z.nora@gmail.com</p>
+                    <p><strong>Address:</strong> ul. Akacjowa 6i, 37-403 Pysznica, Poland</p>
+                    <p><strong>Phone:</strong> +48 732 577 948</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showLang(lang) {
+            document.getElementById('content-pl').classList.toggle('hidden', lang !== 'pl');
+            document.getElementById('content-en').classList.toggle('hidden', lang !== 'en');
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
