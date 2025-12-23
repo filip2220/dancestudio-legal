@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuń Konto / Delete Account - Plié</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #faf5ff;
+            min-height: 100vh;
+            color: #1a1a2e;
+            line-height: 1.7;
+        }
+        
+        .nav {
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #722F5A;
+            font-weight: 600;
+        }
+        
+        .nav-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .nav-back {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #722F5A;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+        
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 2px solid #e8d5f0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 8px;
+        }
+        
+        .header .subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .content-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+        
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #722F5A;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .content-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin: 24px 0 12px;
+        }
+        
+        .content-section p {
+            color: #444;
+            margin-bottom: 16px;
+        }
+        
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            padding: 20px 20px 20px 70px;
+            position: relative;
+            border-left: 3px solid #e8d5f0;
+            margin-left: 20px;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -22px;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .step-list li:last-child {
+            border-left: 3px solid transparent;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .step-desc {
+            color: #666;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 24px;
+        }
+        
+        .data-table th, .data-table td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #f0e6fa;
+        }
+        
+        .data-table th {
+            background: #f8f4fc;
+            font-weight: 600;
+            color: #722F5A;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .badge-deleted {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .badge-retained {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+        
+        .warning-box h4 {
+            color: #92400e;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .warning-box p {
+            color: #78350f;
+            margin-bottom: 0;
+        }
+        
+        .info-box {
+            background: #ede9fe;
+            border-left: 4px solid #722F5A;
+            padding: 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+        }
+        
+        .info-box h4 {
+            color: #722F5A;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-box p {
+            color: #4c1d95;
+            margin-bottom: 0;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #722F5A 0%, #9b4d7a 100%);
+            border-radius: 20px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            color: white;
+        }
+        
+        .contact-section p {
+            opacity: 0.9;
+            margin-bottom: 24px;
+            color: white;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: white;
+            color: #722F5A;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .lang-divider {
+            border-top: 2px dashed #e8d5f0;
+            margin: 32px 0;
+            position: relative;
+        }
+        
+        .lang-divider::after {
+            content: "English";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 0 16px;
+            color: #722F5A;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 16px 60px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .content-section {
+                padding: 24px;
+            }
+            
+            .step-list li {
+                padding: 16px 16px 16px 50px;
+            }
+            
+            .step-list li::before {
+                width: 32px;
+                height: 32px;
+                left: -18px;
+                font-size: 0.9rem;
+            }
+            
+            .data-table {
+                font-size: 0.9rem;
+            }
+            
+            .data-table th, .data-table td {
+                padding: 10px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo">P</div>
+                <span>Plié</span>
+            </a>
+            <a href="index.html" class="nav-back">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Powrót / Back
+            </a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <header class="header">
+            <h1>🗑️ Usuwanie Konta / Delete Account</h1>
+            <p class="subtitle">Plié - Elegant Studio Management</p>
+        </header>
+        
+        <!-- POLISH VERSION -->
+        <div class="content-section">
+            <h2>🇵🇱 Jak usunąć konto (Polski)</h2>
+            
+            <p>Jeśli chcesz usunąć swoje konto w aplikacji Plié, możesz to zrobić na dwa sposoby:</p>
+            
+            <h3>Metoda 1: W aplikacji</h3>
+            <ol class="step-list">
+                <li>
+                    <div class="step-title">Otwórz aplikację Plié</div>
+                    <div class="step-desc">Zaloguj się na swoje konto</div>
+                </li>
+                <li>
+                    <div class="step-title">Przejdź do Ustawień</div>
+                    <div class="step-desc">Kliknij ikonę menu lub przejdź do sekcji "Ustawienia"</div>
+                </li>
+                <li>
+                    <div class="step-title">Wybierz "Konto"</div>
+                    <div class="step-desc">Znajdź opcję zarządzania kontem</div>
+                </li>
+                <li>
+                    <div class="step-title">Kliknij "Usuń konto"</div>
+                    <div class="step-desc">Potwierdź swoją decyzję. Twoje konto zostanie usunięte.</div>
+                </li>
+            </ol>
+            
+            <h3>Metoda 2: Przez email</h3>
+            <p>Wyślij email na adres <strong>balet.z.nora@gmail.com</strong> z tematem "Usunięcie konta - Plié" zawierający:</p>
+            <ul style="margin-left: 24px; margin-bottom: 16px;">
+                <li>Adres email powiązany z kontem</li>
+                <li>Prośbę o usunięcie konta i danych</li>
+            </ul>
+            <p>Odpowiemy w ciągu <strong>48 godzin</strong> i usuniemy Twoje dane w ciągu <strong>14 dni roboczych</strong>.</p>
+            
+            <div class="warning-box">
+                <h4>⚠️ Ważne</h4>
+                <p>Usunięcie konta jest <strong>nieodwracalne</strong>. Wszystkie Twoje dane zostaną trwale usunięte i nie będzie możliwości ich odzyskania.</p>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>📋 Jakie dane są usuwane / zachowywane</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Typ danych</th>
+                        <th>Status po usunięciu</th>
+                        <th>Okres przechowywania</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dane osobowe (imię, email, telefon)</td>
+                        <td><span class="badge badge-deleted">✓ Usunięte</span></td>
+                        <td>Natychmiast</td>
+                    </tr>
+                    <tr>
+                        <td>Zdjęcie profilowe</td>
+                        <td><span class="badge badge-deleted">✓ Usunięte</span></td>
+                        <td>Natychmiast</td>
+                    </tr>
+                    <tr>
+                        <td>Wiadomości prywatne</td>
+                        <td><span class="badge badge-deleted">✓ Usunięte</span></td>
+                        <td>Natychmiast</td>
+                    </tr>
+                    <tr>
+                        <td>Ustawienia konta</td>
+                        <td><span class="badge badge-deleted">✓ Usunięte</span></td>
+                        <td>Natychmiast</td>
+                    </tr>
+                    <tr>
+                        <td>Historia obecności (dla właścicieli)</td>
+                        <td><span class="badge badge-retained">⏳ Zachowane*</span></td>
+                        <td>Zgodnie z przepisami (5 lat)</td>
+                    </tr>
+                    <tr>
+                        <td>Dokumenty finansowe (faktury)</td>
+                        <td><span class="badge badge-retained">⏳ Zachowane*</span></td>
+                        <td>Zgodnie z przepisami (5 lat)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box">
+                <h4>ℹ️ Informacja</h4>
+                <p>* Niektóre dane są przechowywane przez okres wymagany przez polskie prawo podatkowe i rachunkowe (zazwyczaj 5 lat). Dane te są anonimizowane i nie można ich powiązać z Twoją tożsamością.</p>
+            </div>
+        </div>
+        
+        <!-- ENGLISH VERSION -->
+        <div class="content-section">
+            <div class="lang-divider"></div>
+            
+            <h2>🇬🇧 How to Delete Your Account (English)</h2>
+            
+            <p>If you want to delete your account in the Plié app, you can do so in two ways:</p>
+            
+            <h3>Method 1: In the App</h3>
+            <ol class="step-list">
+                <li>
+                    <div class="step-title">Open the Plié app</div>
+                    <div class="step-desc">Log in to your account</div>
+                </li>
+                <li>
+                    <div class="step-title">Go to Settings</div>
+                    <div class="step-desc">Click the menu icon or navigate to "Settings"</div>
+                </li>
+                <li>
+                    <div class="step-title">Select "Account"</div>
+                    <div class="step-desc">Find the account management option</div>
+                </li>
+                <li>
+                    <div class="step-title">Click "Delete Account"</div>
+                    <div class="step-desc">Confirm your decision. Your account will be deleted.</div>
+                </li>
+            </ol>
+            
+            <h3>Method 2: Via Email</h3>
+            <p>Send an email to <strong>balet.z.nora@gmail.com</strong> with the subject "Account Deletion - Plié" containing:</p>
+            <ul style="margin-left: 24px; margin-bottom: 16px;">
+                <li>The email address associated with your account</li>
+                <li>A request to delete your account and data</li>
+            </ul>
+            <p>We will respond within <strong>48 hours</strong> and delete your data within <strong>14 business days</strong>.</p>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important</h4>
+                <p>Account deletion is <strong>irreversible</strong>. All your data will be permanently deleted and cannot be recovered.</p>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>📋 Data Deleted vs. Retained</h2>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Status After Deletion</th>
+                        <th>Retention Period</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Personal data (name, email, phone)</td>
+                        <td><span class="badge badge-deleted">✓ Deleted</span></td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Profile photo</td>
+                        <td><span class="badge badge-deleted">✓ Deleted</span></td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Private messages</td>
+                        <td><span class="badge badge-deleted">✓ Deleted</span></td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Account settings</td>
+                        <td><span class="badge badge-deleted">✓ Deleted</span></td>
+                        <td>Immediately</td>
+                    </tr>
+                    <tr>
+                        <td>Attendance history (for owners)</td>
+                        <td><span class="badge badge-retained">⏳ Retained*</span></td>
+                        <td>As required by law (5 years)</td>
+                    </tr>
+                    <tr>
+                        <td>Financial documents (invoices)</td>
+                        <td><span class="badge badge-retained">⏳ Retained*</span></td>
+                        <td>As required by law (5 years)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box">
+                <h4>ℹ️ Information</h4>
+                <p>* Some data is retained for the period required by Polish tax and accounting regulations (typically 5 years). This data is anonymized and cannot be associated with your identity.</p>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h2>📧 Potrzebujesz pomocy? / Need Help?</h2>
+            <p>Jeśli masz pytania dotyczące usuwania konta lub swoich danych, skontaktuj się z nami.<br>
+            <em>If you have questions about account deletion or your data, contact us.</em></p>
+            <a href="mailto:balet.z.nora@gmail.com?subject=Account%20Deletion%20-%20Plié" class="contact-btn">balet.z.nora@gmail.com</a>
+        </div>
+    </div>
+</body>
+</html>
